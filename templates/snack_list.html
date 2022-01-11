@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %} 
 
 {% block content %}
-<h6>list</h6>
+
+{% for snack in object_list %}
+<h2><a href="{% url 'snack_detail' snack.pk %}">{{ snack.title }}</a></h2>
+{% endfor %}
+<a href="{% url 'snack_create' %}">+ Add</a>
+
 {% endblock content %}
